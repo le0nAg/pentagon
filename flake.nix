@@ -23,14 +23,14 @@
           ./home.nix 
         ];
         extraSpecialArgs = { 
-
+          inherit self; 
         };
       };
 
-      nixosConfiguration.${hostname} = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         modules = [
-          ./configuration.nix
+          ./nixos/configuration.nix
         ];
         specialArgs = {
           inherit inputs;

@@ -16,11 +16,18 @@ in
     ides/vscode.nix
     ides/nvim.nix
     ides/eclipse.nix
-    
+    ides/jetbrains.nix
+    ides/android_studio.nix
     #ricing/hyprland.nix
     
     browsers/firefox.nix
     browsers/tor.nix
+    browsers/brave.nix
+    browsers/librewolf.nix
+    browsers/mullvad.nix
+    browsers/chrome.nix
+    browsers/tor.nix
+
     programming/git.nix
   ];
   
@@ -45,10 +52,7 @@ in
 
   
   home.packages = with pkgs; [
-    android-studio
-    android-studio-tools
-    jetbrains.clion 
-    jetbrains.idea-ultimate
+    
     patchelf
     glib
     openjfx

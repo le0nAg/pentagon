@@ -20,6 +20,7 @@ in
     #ricing/hyprland.nix
     
     browsers/firefox.nix
+    browsers/tor.nix
     programming/git.nix
   ];
   
@@ -108,11 +109,11 @@ in
     gh
       
     #browsers
-    tor-browser
-    brave
-    google-chrome
-    librewolf
-    mullvad-browser
+    # tor-browser
+    # brave
+    # google-chrome
+    # librewolf
+    # mullvad-browser
     # floorp    
 
     #java env

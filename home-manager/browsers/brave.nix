@@ -1,3 +1,5 @@
-{ lib, pkgs } : {
+{ pkgs, ... } : 
 
+{
+  home.packages = [ pkgs.brave ];
 }

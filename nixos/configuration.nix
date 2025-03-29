@@ -117,6 +117,8 @@ in
     
     # Java versions
     openjdk8 openjdk11 openjdk17 openjdk21
+
+    adwaita-icon-theme
   ];
 
   # Hardware configuration

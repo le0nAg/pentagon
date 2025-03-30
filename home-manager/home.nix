@@ -28,6 +28,8 @@ in
     browsers/chrome.nix
     browsers/tor.nix
 
+    meetings/meetings.nix
+
     programming/git.nix
   ];
   
@@ -165,14 +167,8 @@ in
     inetutils
 
     frr
-    zoxide
-    # meeting shits
-    zoom-us
-    teams-for-linux
-    element-desktop
-
-    #discord
-	  vesktop
+    zoxide #TODO
+    
     xwayland
     
     #things of elethronics

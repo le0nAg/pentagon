@@ -17,7 +17,7 @@
       hostname = "nixos";
       username = "leonardo";
     in {
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs; 
         modules = [ 
           ./home-manager/home.nix 

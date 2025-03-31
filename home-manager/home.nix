@@ -68,6 +68,7 @@ in
 
     cmake
     gnumake
+    meson
 
     tcpdump
 

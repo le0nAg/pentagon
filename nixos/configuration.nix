@@ -40,6 +40,7 @@ in
 
   # System services
   services = {
+    flatpak.enable = true;
     fwupd.enable = true;
     
     # X11 Window System configuration
@@ -119,6 +120,8 @@ in
     openjdk8 openjdk11 openjdk17 openjdk21
 
     adwaita-icon-theme
+  
+    flatpak
   ];
 
   # Hardware configuration

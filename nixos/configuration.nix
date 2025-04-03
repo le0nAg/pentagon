@@ -9,6 +9,7 @@ in
     ./vm.nix                      
     ./users.nix                   
     ./services/databases.nix      
+    ./services/udev.nix
   ];
 
   # Boot configuration

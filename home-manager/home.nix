@@ -69,7 +69,9 @@ in
     cmake
     gnumake
     meson
-
+    ninja
+    tree
+    
     tcpdump
 
     jekyll

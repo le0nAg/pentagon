@@ -3,39 +3,44 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      hostname = "nixos";
+
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
       username = "leonardo";
+      hostname = "nixos";
     in {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs; 
-        modules = [ 
-          ./home-manager/home.nix 
-        ];
-        extraSpecialArgs = { 
-          inherit self; 
+        inherit pkgs;
+        modules = [ ./home-manager/home.nix ];
+        extraSpecialArgs = {
+          inherit self unstable;
         };
       };
 
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
+        inherit system;
         modules = [
           ./nixos/configuration.nix
         ];
-        specialArgs = {
-          inherit inputs;
-        };
       };
-
     };
 }
+

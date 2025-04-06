@@ -1,4 +1,5 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
+# { config, pkgs, unstable, ... }:
 let
   fhsEnv = pkgs.buildFHSUserEnv {
     name = "fhs-java-env";
@@ -82,8 +83,8 @@ in
     ))
     go
     flutter
-    unstable.simplex-chat-desktop
-    unstable.zotero
+   # unstable.simplex-chat-desktop
+   # unstable.zotero
     gimp
     wp-cli
     arduino-ide

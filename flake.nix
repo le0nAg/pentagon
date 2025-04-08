@@ -18,12 +18,16 @@
         inherit system;
         config.allowUnfree = true;
       };
-
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
       username = "leonardo";
       hostname = "nixos";
     in {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        inherit unstable;
         modules = [ ./home-manager/home.nix ];
         # extraSpecialArgs = {
         #   inherit self unstable inputs;

@@ -27,11 +27,11 @@
     in {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        inherit unstable;
+        # inherit unstable;
         modules = [ ./home-manager/home.nix ];
-        # extraSpecialArgs = {
-        #   inherit self unstable inputs;
-        # };
+        extraSpecialArgs = {
+          unstable = unstable;
+        };
       };
 
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {

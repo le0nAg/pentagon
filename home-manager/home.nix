@@ -97,6 +97,8 @@ in
     inkscape
     neofetch
     electrum
+
+    nmap
     binwalk
     wireshark
     dig

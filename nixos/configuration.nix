@@ -97,7 +97,10 @@ in
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        glibc stdenv.cc.cc zlib fuse3
+        glibc
+        stdenv.cc.cc 
+        zlib 
+        fuse3
       ];
     };
     java = {
@@ -112,7 +115,7 @@ in
     vim wget git
     
     # Development tools
-    gcc python3 nodejs_22
+    gcc python3 nodejs_22 man-pages man-pages-posix
     
     # Hardware monitoring
     lm_sensors smartmontools
@@ -124,6 +127,8 @@ in
   
     flatpak
   ];
+
+  documentation.dev.enable = true;
 
   # Hardware configuration
   hardware = {

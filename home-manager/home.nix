@@ -79,6 +79,7 @@ in
         beautifulsoup4
         pycryptodome
         pwntools
+        scipy
       ]
     ))
     go
@@ -98,6 +99,7 @@ in
     neofetch
     electrum
 
+    rizinPlugins.rz-ghidra
     nmap
     binwalk
     wireshark

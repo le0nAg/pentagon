@@ -1,2 +1,2 @@
 # pentagon
-My nixos configuratio (on fw16 for the moment)
+My nixos configuration (on fw16 for the moment)

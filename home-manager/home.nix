@@ -1,14 +1,16 @@
+# This is your home-manager configuration file
+# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 { config, pkgs, unstable, ... }:
-# { config, pkgs, unstable, ... }:
 let
-  fhsEnv = pkgs.buildFHSUserEnv {
-    name = "fhs-java-env";
-    targetPkgs = pkgs: [
-      pkgs.openjdk
-      pkgs.jetbrains.idea-ultimate
-    ];
-  };
+  # fhsEnv = pkgs.buildFHSUserEnv {
+  #   name = "fhs-java-env";
+  #   targetPkgs = pkgs: [
+  #     pkgs.openjdk
+  #     pkgs.jetbrains.idea-ultimate
+  #   ];
+  # };
   python = pkgs.python3;
+
 in
 {
   imports = [
@@ -17,6 +19,7 @@ in
     ides/eclipse.nix
     ides/jetbrains.nix
     ides/android_studio.nix
+
     # ricing/hyprland.nix
 
     browsers/firefox.nix
@@ -31,33 +34,38 @@ in
 
     programming/git.nix
   ];
-  
-  home.username = "leonardo";
-  home.homeDirectory = "/home/leonardo";
-  home.stateVersion = "24.11";
-  
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      android_sdk.accept_license = true;
-    };
+
+
+  home = {
+    username = "leonardo";
+    homeDirectory = "/home/leonardo";
+    stateVersion = "24.11";
+    file = {};
+
+    # activation = {
+    #   removeExistingFiles = lib.hm.dag.entryBefore ["writeBoundary"] ''
+    #     # Aggiungi qui i path dei file che causano conflitti, ad esempio:
+    #     # rm -f $HOME/.config/specific-file-causing-conflict.conf
+    #   '';
+    # };
   };
 
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      hacking = "nix-shell ~/hacking/shell.nix";
-    };
-  };
+  # Add stuff for your user as you see fit:
+  # home.packages = with pkgs; [ steam ];
+  # programs.bash = {
+  #   enable = true;
+  #   shellAliases = {
+  #     hacking = "nix-shell ~/hacking/shell.nix";
+  #   };
+  # };
 
+  
   home.packages = with pkgs; [
     patchelf
     glib
     openjfx
     gtk3
     file
-    ngrok
-    gdb
     android-tools
     cmake
     gnumake
@@ -82,23 +90,24 @@ in
         scipy
       ]
     ))
-    go
-    flutter
+
+    # go
+    # flutter
     unstable.simplex-chat-desktop
     unstable.zotero
     gimp
     wp-cli
     arduino-ide
     fw-ectool
-    flashrom
-    minicom
+    # flashrom
+    # minicom
     xz
-    gh
-    fhsEnv
-    inkscape
+    
+    # fhsEnv
     neofetch
     electrum
 
+    ngrok
     rizinPlugins.rz-ghidra
     nmap
     binwalk
@@ -119,11 +128,13 @@ in
     rizin
     caido
     openvpn
+    
     i2p
     i2pd
+    
     traceroute
     inetutils
-    frr
+    
     zoxide
     xwayland
     dbeaver-bin
@@ -137,8 +148,7 @@ in
     glxinfo
   ];
 
-  home.file = { };
-
   programs.home-manager.enable = true;
-}
 
+  systemd.user.startServices = "sd-switch";
+}

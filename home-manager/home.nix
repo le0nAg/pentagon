@@ -122,7 +122,7 @@ in
     exif
     exiftool
     steghide
-    burpsuite
+    unstable.burpsuite
     zap
     ghidra
     rizin

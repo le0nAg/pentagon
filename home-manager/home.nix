@@ -61,6 +61,9 @@ in
 
   
   home.packages = with pkgs; [
+    docker-compose
+    gef
+    gnome-terminal
     patchelf
     glib
     openjfx
@@ -115,7 +118,7 @@ in
     dig
     gobuster
     dirbuster
-    seclists
+    # seclists
     ffuf
     dirb
     proxychains

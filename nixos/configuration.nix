@@ -112,10 +112,12 @@ in
   # System-wide packages
   environment.systemPackages = with pkgs; [
     # Core utilities
-    vim wget git
+    vim wget git 
     
     # Development tools
-    gcc python3 nodejs_22 man-pages man-pages-posix
+    gcc python3 nodejs_22 man-pages man-pages-posix 
+    gdb
+    #gdbserver
     
     # Hardware monitoring
     lm_sensors smartmontools
@@ -126,6 +128,9 @@ in
     adwaita-icon-theme
   
     flatpak
+
+    (wordlists.override { lists = [ rockyou seclists ]; })
+  
   ];
 
   documentation.dev.enable = true;

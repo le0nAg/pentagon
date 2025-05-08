@@ -61,6 +61,7 @@ in
 
   
   home.packages = with pkgs; [
+    inkscape
     docker-compose
     gef
     gnome-terminal
@@ -83,6 +84,7 @@ in
     ruby
     (python.withPackages (ps:
       with ps; [
+        ropper
         jupyter
         flask
         requests
@@ -91,6 +93,8 @@ in
         pycryptodome
         pwntools
         scipy
+        pillow
+        pytesseract
       ]
     ))
 

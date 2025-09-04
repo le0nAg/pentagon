@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
 
 in
@@ -29,7 +29,8 @@ in
   };
 
   # Localization settings
-  time.timeZone = "Europe/Rome";
+  time.timeZone = "Europe/Tallinn";
+  # time.timeZone = lib.mkForce null;
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
@@ -38,6 +39,8 @@ in
       # ... (other locale settings)
     };
   };
+
+  # services.automatic-timezoned.enable = true;
 
   # System services
   services = {

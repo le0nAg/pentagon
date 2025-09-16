@@ -29,7 +29,7 @@ in
   };
 
   # Localization settings
-  time.timeZone = "Europe/Rome";
+  time.timeZone = "Europe/Tallinn";
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
@@ -87,7 +87,7 @@ in
   virtualisation.docker = {
     enable = true;
     rootless = {
-      enable = true;
+      enable = false; # TODO: restore rootless and configure properply
       setSocketVariable = true;
     };
   };

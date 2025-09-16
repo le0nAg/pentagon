@@ -61,6 +61,7 @@ in
 
   
   home.packages = with pkgs; [
+    gnupg    
     inkscape
     docker-compose
     gef
@@ -84,6 +85,7 @@ in
     ruby
     (python.withPackages (ps:
       with ps; [
+        sysv_ipc
         ropper
         jupyter
         flask
@@ -95,9 +97,11 @@ in
         scipy
         pillow
         pytesseract
+        matplotlib
+        networkx
       ]
     ))
-
+    one_gadget
     # go
     # flutter
     unstable.simplex-chat-desktop
@@ -133,15 +137,25 @@ in
     zap
     ghidra
     rizin
+    radare2
     caido
+    valgrind
+    R
+    #vpn
     openvpn
+    wireguard-ui
+    wireguard-tools
     
+
     i2p
     i2pd
     
     traceroute
     inetutils
     
+    flex
+    bison
+
     zoxide
     xwayland
     dbeaver-bin
